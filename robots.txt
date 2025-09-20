@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://neverloseyoursm1le.github.io/sleep-calc/sitemap.xml
