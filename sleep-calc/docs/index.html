@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Калькулятор сна — рассчитайте идеальное время отхода ко сну</title>
+  <meta name="description" content="Калькулятор сна: быстро рассчитайте время отхода ко сну и оптимальные пробуждения по 90-минутным циклам. Советы, FAQ и готовые расписания для будней и выходных." />
+  <meta name="keywords" content="калькулятор сна, сон, циклы сна, когда ложиться спать, nap calculator, sleep calculator, во сколько лечь чтобы встать" />
+  <link rel="canonical" href="https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Калькулятор сна — рассчитайте идеальное время отхода ко сну" />
+  <meta property="og:description" content="Калькулятор сна: быстро рассчитайте время отхода ко сну и оптимальные пробуждения по 90-минутным циклам." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/" />
+  <meta property="og:image" content="OG_IMAGE_URL" />
+
+  <meta name="robots" content="index, follow" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Analytics: замените G-XXXXXXXXXX на ваш GA4 Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', { 'anonymize_ip': true });
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"Калькулятор сна",
+    "url":"https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/"
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Калькулятор сна</h1>
+      <p class="lead">Когда лечь, чтобы проснуться бодрым? Рассчитайте оптимальные циклы сна, короткие дремы и подходящие часы отхода ко сну.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero / Main calculator -->
+    <section class="card" id="main-calculator" aria-labelledby="main-h">
+      <h2 id="main-h">Главный калькулятор: рассчитайте время отхода ко сну</h2>
+      <p>Выберите режим: <strong>хочу встать в</strong> — либо — <strong>ложусь спать в</strong>. Калькулятор подбирает время с учётом 90-минутных циклов и среднего времени засыпания.</p>
+
+      <div class="row">
+        <div class="col">
+          <label class="control"><input type="radio" name="mode" value="bedtime" checked> Хочу встать в</label>
+          <label class="control"><input type="radio" name="mode" value="waketime"> Ложусь спать в</label>
+        </div>
+        <div class="col">
+          <label>Время (чч:мм)
+            <input id="timeInput" type="time" step="60" value="07:00" />
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label>Число циклов (1 цикл ≈ 90 мин)
+            <select id="cyclesSelect">
+              <option value="3">3 (≈4.5 ч)</option>
+              <option value="4">4 (≈6.0 ч)</option>
+              <option value="5" selected>5 (≈7.5 ч)</option>
+              <option value="6">6 (≈9.0 ч)</option>
+            </select>
+          </label>
+        </div>
+        <div class="col">
+          <label>Время засыпания (мин)
+            <input id="fallAsleep" type="number" min="0" max="60" value="14" />
+          </label>
+        </div>
+      </div>
+
+      <div style="margin-top:12px">
+        <button id="calcBtn">Рассчитать</button>
+        <button id="quickBtn" class="muted">Подобрать быстро</button>
+      </div>
+
+      <div id="calcResult" class="result" style="display:none" aria-live="polite"></div>
+    </section>
+
+    <!-- Nap -->
+    <section class="card" id="nap-calculator" aria-labelledby="nap-h">
+      <h2 id="nap-h">Калькулятор короткой дремы</h2>
+      <p>Короткие дремы 10–30 мин освежают, 90 мин — полный цикл. Узнайте лучшее время пробуждения.</p>
+      <div class="row">
+        <div class="col">
+          <label>Длительность (мин)
+            <select id="napLength">
+              <option value="10">10</option>
+              <option value="20" selected>20</option>
+              <option value="30">30</option>
+              <option value="60">60</option>
+              <option value="90">90</option>
+            </select>
+          </label>
+        </div>
+        <div class="col">
+          <label>Начало дремы <input id="napStart" type="time" value=""></label>
+        </div>
+      </div>
+      <div style="margin-top:12px"><button id="napCalcBtn">Рассчитать дрему</button></div>
+      <div id="napResult" class="result" style="display:none"></div>
+    </section>
+
+    <!-- Tips -->
+    <section class="card" id="tips-section">
+      <h2>Советы по улучшению сна</h2>
+      <div id="tips-root">Загрузка...</div>
+    </section>
+
+    <!-- Links to landing pages (SEO internal linking) -->
+    <section class="card" id="landing-links">
+      <h2>Полезные материалы</h2>
+      <ul>
+        <li><a href="/pages/best-times-to-sleep.html">Лучшее время для сна: расчёт под ваш режим</a></li>
+        <li><a href="/pages/nap-guide.html">Гайд по дневным дремам — 10/20/90 минут</a></li>
+        <li><a href="/pages/child-sleep-tips.html">Сон ребёнка: советы и распорядок</a></li>
+      </ul>
+    </section>
+
+    <!-- FAQ for SEO (rendered by script & injected as JSON-LD) -->
+    <section class="card" id="faq-section">
+      <h2>Часто задаваемые вопросы</h2>
+      <div id="faq-root">Загрузка...</div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer container">
+    <p>© <span id="year"></span> Калькулятор сна — полезные расчёты и советы</p>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="script.js"></script>
+</body>
+</html>

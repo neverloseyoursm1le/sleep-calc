@@ -1,0 +1,21 @@
+:root{--maxw:1100px;--accent:#0f62fe;--muted:#6b7280;--bg:#f7fafc}
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:#0b1221;margin:0;line-height:1.45}
+.container{max-width:var(--maxw);margin:18px auto;padding:12px}
+.site-header{background:linear-gradient(90deg,#0f62fe,#0052cc);color:#fff;padding:26px;border-radius:10px}
+.site-header h1{margin:0;font-size:28px}
+.site-header .lead{opacity:.95;margin-top:6px}
+.card{background:#fff;border-radius:10px;padding:18px;margin:18px 0;box-shadow:0 8px 30px rgba(12,24,40,.06)}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.col{flex:1;min-width:220px}
+label{display:block;font-size:14px;color:#0f172a;margin-bottom:6px}
+input[type="time"], input[type="number"], select{width:100%;padding:10px;border:1px solid #e6eef8;border-radius:8px;font-size:15px}
+button{background:var(--accent);color:#fff;padding:10px 14px;border-radius:9px;border:0;cursor:pointer;font-weight:600}
+button.muted{background:#f1f5f9;color:var(--muted);border:1px solid #e6eef8}
+.result{margin-top:12px;background:#f1f5f9;padding:14px;border-radius:8px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.tip{margin-bottom:12px}
+.faq-item details summary{cursor:pointer;padding:8px;border-radius:6px;background:#fff;border:1px solid #eef2f7;margin-bottom:8px}
+.site-footer{color:#6b7280;font-size:14px;margin-top:22px;text-align:center;padding-bottom:22px}
+@media(max-width:720px){.row{flex-direction:column}}
