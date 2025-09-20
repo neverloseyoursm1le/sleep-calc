@@ -23,7 +23,7 @@ jobs:
 
       - name: Run generator to build sitemap
         run: |
-          python3 generator.py
+          python3 sleep-calc/generator.py
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
